@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="SmartImportWizard">
+		<item key="SmartImportRootWizardPage.STORE_HIDE_ALREADY_OPEN" value="false"/>
+		<item key="SmartImportRootWizardPage.STORE_CLOSE_IMPORTED" value="false"/>
+		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
+		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
+		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="C:\Users\Víctor\worktrabajo\aaa\src\formula-solver"/>
+			<item value="C:\Users\Víctor\worktrabajo\aaa\src"/>
+			<item value="C:\Users\Víctor\Documents\GitHub\SPL_Trans"/>
+			<item value="C:\Users\Víctor\Desktop\tfm-workspace\BPMN-Designer-4.1.1"/>
+		</list>
+	</section>
+	<section name="CleanDialogSettings">
+		<item key="TOGGLE_SELECTED" value="false"/>
+		<item key="DIALOG_WIDTH" value="500"/>
+		<item key="DIALOG_HEIGHT" value="389"/>
+		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+	</section>
+	<section name="BasicNewProjectResourceWizard">
+	</section>
+	<section name="NewWizardAction">
+		<item key="NewWizardSelectionPage.STORE_SELECTED_ID" value="org.eclipse.sirius.ui.specificationproject.wizard"/>
+		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
+			<item value="org.eclipse.emf.codegen.ecore.ui.wizardCategory"/>
+			<item value="org.eclipse.emf.parsley.wizards"/>
+			<item value="org.eclipse.jdt.ui.java"/>
+			<item value="org.eclipse.pde.PDE"/>
+			<item value="org.eclipse.sirius.category"/>
+			<item value="org.eclipse.ui.Examples"/>
+			<item value="org.eclipse.ui.Examples/org.eclipse.emf.cdo.examples"/>
+			<item value="org.eclipse.ui.Examples/org.eclipse.emf.examples.EMF"/>
+			<item value="org.eclipse.ui.Examples/org.eclipse.emfforms.example.common.wizards.EMFForms"/>
+			<item value="org.eclipse.ui.Examples/org.eclipse.emf.query.examples.category"/>
+			<item value="org.eclipse.ui.Examples/org.eclipse.emf.parsley.ui.Examples"/>
+			<item value="org.eclipse.ui.Examples/org.eclipse.gef.examples.plugin"/>
+			<item value="org.eclipse.ui.Examples/org.eclipse.gmf.examples.runtime"/>
+			<item value="org.eclipse.ui.Examples/org.eclipse.net4j.examples"/>
+			<item value="org.eclipse.ui.Examples/org.eclipse.uml2.examples.category"/>
+			<item value="org.eclipse.ui.Examples/org.eclipse.xsd.examples.XSD"/>
+		</list>
+	</section>
+</section>

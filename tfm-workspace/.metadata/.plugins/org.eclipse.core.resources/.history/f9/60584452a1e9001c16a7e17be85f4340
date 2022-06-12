@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/bpmn/src-gen" creationIcons="false" editDirectory="/bpmn.edit/src-gen"
+    editorDirectory="/bpmn.editor/src-gen" modelPluginID="bpmn" modelName="Bpmn" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0"
+    copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>bpmn.ecore</foreignModel>
+  <testsDirectory xsi:nil="true"/>
+  <genPackages prefix="Bpmn" disposableProviderFactory="true" ecorePackage="bpmn.ecore#/">
+    <genClasses ecoreClass="bpmn.ecore#//BusinessProcessDiagram">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bpmn.ecore#//BusinessProcessDiagram/pools"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bpmn.ecore#//BusinessProcessDiagram/elements"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="bpmn.ecore#//BPMNElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bpmn.ecore#//BPMNElement/ID"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="bpmn.ecore#//Swimlane">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bpmn.ecore#//Swimlane/name"/>
+    </genClasses>
+    <genClasses ecoreClass="bpmn.ecore#//Lane">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference bpmn.ecore#//Lane/elements"/>
+    </genClasses>
+    <genClasses ecoreClass="bpmn.ecore#//Pool">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bpmn.ecore#//Pool/lanes"/>
+    </genClasses>
+    <genClasses ecoreClass="bpmn.ecore#//Event"/>
+    <genClasses ecoreClass="bpmn.ecore#//StartEvent">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bpmn.ecore#//StartEvent/message"/>
+    </genClasses>
+    <genClasses ecoreClass="bpmn.ecore#//EndEvent">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bpmn.ecore#//EndEvent/message"/>
+    </genClasses>
+    <genClasses ecoreClass="bpmn.ecore#//IntermediateEvent"/>
+    <genClasses ecoreClass="bpmn.ecore#//TimerEvent"/>
+    <genClasses ecoreClass="bpmn.ecore#//ErrorEvent"/>
+    <genClasses ecoreClass="bpmn.ecore#//Activity">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bpmn.ecore#//Activity/description"/>
+    </genClasses>
+    <genClasses ecoreClass="bpmn.ecore#//NormalTask"/>
+    <genClasses ecoreClass="bpmn.ecore#//UserTask"/>
+    <genClasses ecoreClass="bpmn.ecore#//ManualTask"/>
+    <genClasses ecoreClass="bpmn.ecore#//ServiceTask"/>
+    <genClasses ecoreClass="bpmn.ecore#//MsgReceiveTask"/>
+    <genClasses ecoreClass="bpmn.ecore#//MsgSendTask"/>
+    <genClasses ecoreClass="bpmn.ecore#//ScriptTask"/>
+    <genClasses ecoreClass="bpmn.ecore#//BusinessRuleTask"/>
+    <genClasses ecoreClass="bpmn.ecore#//Flow">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference bpmn.ecore#//Flow/in"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference bpmn.ecore#//Flow/out"/>
+    </genClasses>
+    <genClasses ecoreClass="bpmn.ecore#//SequenceFlow"/>
+    <genClasses ecoreClass="bpmn.ecore#//MessageFlow"/>
+    <genClasses ecoreClass="bpmn.ecore#//Gateway"/>
+    <genClasses ecoreClass="bpmn.ecore#//ExclusiveGateway"/>
+    <genClasses ecoreClass="bpmn.ecore#//InclusiveGateway"/>
+    <genClasses ecoreClass="bpmn.ecore#//ParallelGateway"/>
+  </genPackages>
+</genmodel:GenModel>

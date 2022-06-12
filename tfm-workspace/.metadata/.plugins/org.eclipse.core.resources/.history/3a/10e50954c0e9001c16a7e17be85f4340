@@ -1,0 +1,844 @@
+/**
+ */
+package bpmn.util;
+
+import bpmn.*;
+
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EPackage;
+
+import org.eclipse.emf.ecore.util.Switch;
+
+/**
+ * <!-- begin-user-doc -->
+ * The <b>Switch</b> for the model's inheritance hierarchy.
+ * It supports the call {@link #doSwitch(EObject) doSwitch(object)}
+ * to invoke the <code>caseXXX</code> method for each class of the model,
+ * starting with the actual class of the object
+ * and proceeding up the inheritance hierarchy
+ * until a non-null result is returned,
+ * which is the result of the switch.
+ * <!-- end-user-doc -->
+ * @see bpmn.BpmnPackage
+ * @generated
+ */
+public class BpmnSwitch<T> extends Switch<T> {
+	/**
+	 * The cached model package
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected static BpmnPackage modelPackage;
+
+	/**
+	 * Creates an instance of the switch.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BpmnSwitch() {
+		if (modelPackage == null) {
+			modelPackage = BpmnPackage.eINSTANCE;
+		}
+	}
+
+	/**
+	 * Checks whether this is a switch for the given package.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param ePackage the package in question.
+	 * @return whether this is a switch for the given package.
+	 * @generated
+	 */
+	@Override
+	protected boolean isSwitchFor(EPackage ePackage) {
+		return ePackage == modelPackage;
+	}
+
+	/**
+	 * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the first non-null result returned by a <code>caseXXX</code> call.
+	 * @generated
+	 */
+	@Override
+	protected T doSwitch(int classifierID, EObject theEObject) {
+		switch (classifierID) {
+		case BpmnPackage.BUSINESS_PROCESS_DIAGRAM: {
+			BusinessProcessDiagram businessProcessDiagram = (BusinessProcessDiagram) theEObject;
+			T result = caseBusinessProcessDiagram(businessProcessDiagram);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case BpmnPackage.BPMN_ELEMENT: {
+			BPMNElement bpmnElement = (BPMNElement) theEObject;
+			T result = caseBPMNElement(bpmnElement);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case BpmnPackage.SWIMLANE: {
+			Swimlane swimlane = (Swimlane) theEObject;
+			T result = caseSwimlane(swimlane);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case BpmnPackage.LANE: {
+			Lane lane = (Lane) theEObject;
+			T result = caseLane(lane);
+			if (result == null)
+				result = caseSwimlane(lane);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case BpmnPackage.POOL: {
+			Pool pool = (Pool) theEObject;
+			T result = casePool(pool);
+			if (result == null)
+				result = caseSwimlane(pool);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case BpmnPackage.EVENT: {
+			Event event = (Event) theEObject;
+			T result = caseEvent(event);
+			if (result == null)
+				result = caseBPMNElement(event);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case BpmnPackage.START_EVENT: {
+			StartEvent startEvent = (StartEvent) theEObject;
+			T result = caseStartEvent(startEvent);
+			if (result == null)
+				result = caseEvent(startEvent);
+			if (result == null)
+				result = caseBPMNElement(startEvent);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case BpmnPackage.END_EVENT: {
+			EndEvent endEvent = (EndEvent) theEObject;
+			T result = caseEndEvent(endEvent);
+			if (result == null)
+				result = caseEvent(endEvent);
+			if (result == null)
+				result = caseBPMNElement(endEvent);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case BpmnPackage.INTERMEDIATE_EVENT: {
+			IntermediateEvent intermediateEvent = (IntermediateEvent) theEObject;
+			T result = caseIntermediateEvent(intermediateEvent);
+			if (result == null)
+				result = caseEvent(intermediateEvent);
+			if (result == null)
+				result = caseBPMNElement(intermediateEvent);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case BpmnPackage.TIMER_EVENT: {
+			TimerEvent timerEvent = (TimerEvent) theEObject;
+			T result = caseTimerEvent(timerEvent);
+			if (result == null)
+				result = caseEvent(timerEvent);
+			if (result == null)
+				result = caseBPMNElement(timerEvent);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case BpmnPackage.ERROR_EVENT: {
+			ErrorEvent errorEvent = (ErrorEvent) theEObject;
+			T result = caseErrorEvent(errorEvent);
+			if (result == null)
+				result = caseEvent(errorEvent);
+			if (result == null)
+				result = caseBPMNElement(errorEvent);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case BpmnPackage.ACTIVITY: {
+			Activity activity = (Activity) theEObject;
+			T result = caseActivity(activity);
+			if (result == null)
+				result = caseBPMNElement(activity);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case BpmnPackage.NORMAL_TASK: {
+			NormalTask normalTask = (NormalTask) theEObject;
+			T result = caseNormalTask(normalTask);
+			if (result == null)
+				result = caseActivity(normalTask);
+			if (result == null)
+				result = caseBPMNElement(normalTask);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case BpmnPackage.USER_TASK: {
+			UserTask userTask = (UserTask) theEObject;
+			T result = caseUserTask(userTask);
+			if (result == null)
+				result = caseActivity(userTask);
+			if (result == null)
+				result = caseBPMNElement(userTask);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case BpmnPackage.MANUAL_TASK: {
+			ManualTask manualTask = (ManualTask) theEObject;
+			T result = caseManualTask(manualTask);
+			if (result == null)
+				result = caseActivity(manualTask);
+			if (result == null)
+				result = caseBPMNElement(manualTask);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case BpmnPackage.SERVICE_TASK: {
+			ServiceTask serviceTask = (ServiceTask) theEObject;
+			T result = caseServiceTask(serviceTask);
+			if (result == null)
+				result = caseActivity(serviceTask);
+			if (result == null)
+				result = caseBPMNElement(serviceTask);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case BpmnPackage.MSG_RECEIVE_TASK: {
+			MsgReceiveTask msgReceiveTask = (MsgReceiveTask) theEObject;
+			T result = caseMsgReceiveTask(msgReceiveTask);
+			if (result == null)
+				result = caseActivity(msgReceiveTask);
+			if (result == null)
+				result = caseBPMNElement(msgReceiveTask);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case BpmnPackage.MSG_SEND_TASK: {
+			MsgSendTask msgSendTask = (MsgSendTask) theEObject;
+			T result = caseMsgSendTask(msgSendTask);
+			if (result == null)
+				result = caseActivity(msgSendTask);
+			if (result == null)
+				result = caseBPMNElement(msgSendTask);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case BpmnPackage.SCRIPT_TASK: {
+			ScriptTask scriptTask = (ScriptTask) theEObject;
+			T result = caseScriptTask(scriptTask);
+			if (result == null)
+				result = caseActivity(scriptTask);
+			if (result == null)
+				result = caseBPMNElement(scriptTask);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case BpmnPackage.BUSINESS_RULE_TASK: {
+			BusinessRuleTask businessRuleTask = (BusinessRuleTask) theEObject;
+			T result = caseBusinessRuleTask(businessRuleTask);
+			if (result == null)
+				result = caseActivity(businessRuleTask);
+			if (result == null)
+				result = caseBPMNElement(businessRuleTask);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case BpmnPackage.FLOW: {
+			Flow flow = (Flow) theEObject;
+			T result = caseFlow(flow);
+			if (result == null)
+				result = caseBPMNElement(flow);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case BpmnPackage.SEQUENCE_FLOW: {
+			SequenceFlow sequenceFlow = (SequenceFlow) theEObject;
+			T result = caseSequenceFlow(sequenceFlow);
+			if (result == null)
+				result = caseFlow(sequenceFlow);
+			if (result == null)
+				result = caseBPMNElement(sequenceFlow);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case BpmnPackage.MESSAGE_FLOW: {
+			MessageFlow messageFlow = (MessageFlow) theEObject;
+			T result = caseMessageFlow(messageFlow);
+			if (result == null)
+				result = caseFlow(messageFlow);
+			if (result == null)
+				result = caseBPMNElement(messageFlow);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case BpmnPackage.ASSOCIATION: {
+			Association association = (Association) theEObject;
+			T result = caseAssociation(association);
+			if (result == null)
+				result = caseFlow(association);
+			if (result == null)
+				result = caseBPMNElement(association);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case BpmnPackage.GATEWAY: {
+			Gateway gateway = (Gateway) theEObject;
+			T result = caseGateway(gateway);
+			if (result == null)
+				result = caseBPMNElement(gateway);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case BpmnPackage.EXCLUSIVE_GATEWAY: {
+			ExclusiveGateway exclusiveGateway = (ExclusiveGateway) theEObject;
+			T result = caseExclusiveGateway(exclusiveGateway);
+			if (result == null)
+				result = caseGateway(exclusiveGateway);
+			if (result == null)
+				result = caseBPMNElement(exclusiveGateway);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case BpmnPackage.INCLUSIVE_GATEWAY: {
+			InclusiveGateway inclusiveGateway = (InclusiveGateway) theEObject;
+			T result = caseInclusiveGateway(inclusiveGateway);
+			if (result == null)
+				result = caseGateway(inclusiveGateway);
+			if (result == null)
+				result = caseBPMNElement(inclusiveGateway);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case BpmnPackage.PARALLEL_GATEWAY: {
+			ParallelGateway parallelGateway = (ParallelGateway) theEObject;
+			T result = caseParallelGateway(parallelGateway);
+			if (result == null)
+				result = caseGateway(parallelGateway);
+			if (result == null)
+				result = caseBPMNElement(parallelGateway);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case BpmnPackage.ARTIFACT: {
+			Artifact artifact = (Artifact) theEObject;
+			T result = caseArtifact(artifact);
+			if (result == null)
+				result = caseBPMNElement(artifact);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case BpmnPackage.ANNOTATION: {
+			Annotation annotation = (Annotation) theEObject;
+			T result = caseAnnotation(annotation);
+			if (result == null)
+				result = caseArtifact(annotation);
+			if (result == null)
+				result = caseBPMNElement(annotation);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		default:
+			return defaultCase(theEObject);
+		}
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Business Process Diagram</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Business Process Diagram</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBusinessProcessDiagram(BusinessProcessDiagram object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>BPMN Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>BPMN Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBPMNElement(BPMNElement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Swimlane</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Swimlane</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSwimlane(Swimlane object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Lane</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Lane</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseLane(Lane object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Pool</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Pool</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePool(Pool object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Event</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Event</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseEvent(Event object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Start Event</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Start Event</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseStartEvent(StartEvent object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>End Event</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>End Event</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseEndEvent(EndEvent object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Intermediate Event</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Intermediate Event</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIntermediateEvent(IntermediateEvent object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Timer Event</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Timer Event</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTimerEvent(TimerEvent object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Error Event</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Error Event</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseErrorEvent(ErrorEvent object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Activity</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Activity</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseActivity(Activity object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Normal Task</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Normal Task</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseNormalTask(NormalTask object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>User Task</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>User Task</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUserTask(UserTask object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Manual Task</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Manual Task</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseManualTask(ManualTask object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Service Task</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Service Task</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseServiceTask(ServiceTask object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Msg Receive Task</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Msg Receive Task</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMsgReceiveTask(MsgReceiveTask object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Msg Send Task</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Msg Send Task</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMsgSendTask(MsgSendTask object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Script Task</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Script Task</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseScriptTask(ScriptTask object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Business Rule Task</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Business Rule Task</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBusinessRuleTask(BusinessRuleTask object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Flow</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Flow</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseFlow(Flow object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Sequence Flow</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Sequence Flow</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSequenceFlow(SequenceFlow object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Message Flow</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Message Flow</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMessageFlow(MessageFlow object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Association</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Association</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAssociation(Association object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Gateway</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Gateway</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseGateway(Gateway object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Exclusive Gateway</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Exclusive Gateway</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseExclusiveGateway(ExclusiveGateway object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Inclusive Gateway</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Inclusive Gateway</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseInclusiveGateway(InclusiveGateway object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Parallel Gateway</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Parallel Gateway</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseParallelGateway(ParallelGateway object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Artifact</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Artifact</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseArtifact(Artifact object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Annotation</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Annotation</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAnnotation(Annotation object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>EObject</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch, but this is the last case anyway.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>EObject</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject)
+	 * @generated
+	 */
+	@Override
+	public T defaultCase(EObject object) {
+		return null;
+	}
+
+} //BpmnSwitch

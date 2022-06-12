@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="variability.variability.provider.FileURIItemProvider"/>
+<fullyQualifiedTypeName name="variability.variability.provider.VariabilityItemProvider"/>
+<fullyQualifiedTypeName name="variability.variability.provider.PresenceConditionItemProvider"/>
+<fullyQualifiedTypeName name="variability.variability.provider.FeatureItemProvider"/>
+<fullyQualifiedTypeName name="variability.variability.provider.UnaryExpressionItemProvider"/>
+<fullyQualifiedTypeName name="variability.variability.provider.BinaryExpressionItemProvider"/>
+<fullyQualifiedTypeName name="bpmnpl_variability.Expression"/>
+<fullyQualifiedTypeName name="bpmnpl_variability.Feature"/>
+<fullyQualifiedTypeName name="bpmnpl_variability.UnaryExpression"/>
+<fullyQualifiedTypeName name="bpmnpl_variability.BinaryExpression"/>
+<fullyQualifiedTypeName name="bpmn.Pool"/>
+<fullyQualifiedTypeName name="bpmn.Lane"/>
+<fullyQualifiedTypeName name="org.eclipse.emf.ecore.EObject"/>
+<fullyQualifiedTypeName name="bpmn.Annotation"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
+</qualifiedTypeNameHistroy>

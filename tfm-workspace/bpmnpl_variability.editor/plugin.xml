@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated bpmnpl_variability -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="bpmnpl_variability.presentation.Bpmnpl_variabilityModelWizardID"
+            name="%_UI_Bpmnpl_variabilityModelWizard_label"
+            class="bpmnpl_variability.presentation.Bpmnpl_variabilityModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/Bpmnpl_variabilityModelFile.gif">
+         <description>%_UI_Bpmnpl_variabilityModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated bpmnpl_variability -->
+      <editor
+            id="bpmnpl_variability.presentation.Bpmnpl_variabilityEditorID"
+            name="%_UI_Bpmnpl_variabilityEditor_label"
+            icon="icons/full/obj16/Bpmnpl_variabilityModelFile.gif"
+            extensions="bpmnpl_variability"
+            class="bpmnpl_variability.presentation.Bpmnpl_variabilityEditor"
+            contributorClass="bpmnpl_variability.presentation.Bpmnpl_variabilityActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

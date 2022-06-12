@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy 2 elements to &apos;bpmnpl.design&apos;&#x0D;&#x0A;- Original project: &apos;org.obeonetwork.dsl.bpmn2.design&apos;&#x0D;&#x0A;- Destination element: &apos;bpmnpl.design&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     icons&#x0D;&#x0A;     icons2" description="Copy folders" element1="icons" element2="icons2" files="0" flags="589830" folders="2" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1633076458158" target="/bpmnpl.design" units="0" version="1.0"/>
+</session>
