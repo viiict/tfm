@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Move &apos;icons, icons2&apos; to &apos;bpmnpl&apos;" description="Move 2 resources to &apos;bpmnpl&apos;" destination="/bpmnpl" element1="/org.obeonetwork.dsl.bpmn2.design/icons" element2="/org.obeonetwork.dsl.bpmn2.design/icons2" flags="7" id="org.eclipse.ltk.core.refactoring.move.resources" resources="2" stamp="1633677628291" updateReferences="true"/>
-</session>

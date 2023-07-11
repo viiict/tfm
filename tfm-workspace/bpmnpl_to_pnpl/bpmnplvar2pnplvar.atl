@@ -1,0 +1,118 @@
+module bpmnplvar2pnplvar;
+create  OUTVar : pnplVariability from INPN : pns, INVar : bpmnplVariability;
+
+
+-------------------------------------------------------------------
+---------------------------- ROOT VAR -----------------------------
+-------------------------------------------------------------------
+
+
+rule rootVar {
+	from
+		bpmnVar: bpmnplVariability!Variability
+		
+	to
+		pnVar: pnplVariability!Variability (
+			featuremodel <- bpmnVar.featuremodel,
+			petrinet <- bpmnVar.bpmn
+		)
+}
+ 
+rule bpmnFileUri2pnsFileUri {
+	from
+		bpmnUri: bpmnplVariability!FileURI
+		
+	to
+		pnUri: pnplVariability!FileURI (
+			importURI <- bpmnUri.importURI	
+		)
+}
+
+rule bpmnPC2pnsPC (bpmnPC: bpmnplVariability!PresenceCondition, pn: pns!PetriNet, pnVar: pnplVariability!Variability){
+	to
+		pnPC: pnplVariability!PresenceCondition(
+			--elements <- bpmnPC.elements,
+			expression <- bpmnPC.expression
+		)
+	do {
+		for(e in bpmnPC.elements){
+			for(pnPlace in pn.places){
+				if(pnPlace.name.split('_').includes(e.ID) = true){
+					pnPC.elements.add(pnPlace);
+					'funcionaPlace'.println();
+				}
+			}
+			for(pnTrans in pn.trans){
+				if(pnTrans.name.split('_').includes(e.ID) = true){
+					pnPC.elements.add(pnTrans);
+					'funcionaTrans'.println();
+				}				
+			}
+			for(pnArc in pn.arcs){
+				if(pnArc.name.split('_').includes(e.ID) = true){
+					pnPC.elements.add(pnArc);
+					'funcionaArc'.println();
+				}
+			}
+		}
+--		thisModule.resolveTemp(pnVar.presencecondition, pnPC);
+	}
+
+}
+
+
+--rule addPC(pnVar: pnplVariability!Variability, pnPC: pnplVariability!PresenceCondition){
+--	do {
+--		'holaMundo'.println();
+--		pnVar.presencecondition.add(pnPC);
+--	}
+--}
+---------------------------------------------------------------------
+---------------------------- EXPRESSION -----------------------------
+---------------------------------------------------------------------
+
+
+rule bpmnFeature2pnsFeature {
+	from
+		bpmnF: bpmnplVariability!Feature
+		
+	to
+		pnF: pnplVariability!Feature(
+			feature <- bpmnF.feature	
+		)
+}
+
+
+rule bpmnUE2pnsUE {
+	from 
+		bpmnUE: bpmnplVariability!UnaryExpression
+	to 
+		pnUE: pnplVariability!UnaryExpression(
+			operator <- bpmnUE.operator,
+			right <-bpmnUE.right
+		)
+}
+
+rule bpmnBE2pnsBE {
+	from 
+		bpmnBE: bpmnplVariability!BinaryExpression
+	to 
+		pnBE: pnplVariability!BinaryExpression(
+			operator <- bpmnBE.operator,
+			right <-bpmnBE.right,
+			left <- bpmnBE.left
+		)
+}
+
+endpoint rule thisistheend() {
+	do {
+
+		for(pc in bpmnplVariability!PresenceCondition.allInstances()){
+			thisModule.bpmnPC2pnsPC(pc, pns!PetriNet.allInstancesFrom('INPN').first(), pnplVariability!Variability.allInstancesFrom('OUTVar').first());
+		}
+		for(pnpc in pnplVariability!PresenceCondition.allInstancesFrom('OUTVar')) {
+			pnplVariability!Variability.allInstances().first().presencecondition.add(pnpc);
+		}
+	}
+}
+

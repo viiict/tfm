@@ -9,8 +9,16 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated bpmnpl_variability -->
       <package
-            uri="/bpmnpl_variability/model/bpmnpl_variability"
+            uri="http://www.example.org/bpmnpl_variability"
             class="bpmnpl_variability.Bpmnpl_variabilityPackage"
+            genModel="model/bpmnpl_variability.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated bpmnpl_variability -->
+      <package
+            uri="http://www.example.org/bpmn"
+            class="bpmn.BpmnPackage"
             genModel="model/bpmnpl_variability.genmodel"/>
    </extension>
 

@@ -1,0 +1,20 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ATL org.eclipse.m2m.atl.bpmn2pns Transformation Runtime Plug-in
+Bundle-SymbolicName: org.eclipse.m2m.atl.bpmn2pns;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: Eclipse Modeling Project
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.m2m.atl.engine.emfvm,
+ org.eclipse.ui,
+ org.eclipse.m2m.atl.core,
+ org.eclipse.emf.ecore,
+ bpmn;bundle-version="0.1.0",
+ bpmn.edit;bundle-version="1.0.0",
+ bpmn.editor;bundle-version="1.0.0",
+ pns;bundle-version="1.0.0",
+ pns.edit;bundle-version="1.0.0",
+ pns.editor;bundle-version="1.0.0"
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Eclipse-LazyStart: false
+Import-Package: org.eclipse.core.resources

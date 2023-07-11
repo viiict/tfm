@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
-    modelDirectory="/bpmnpl_variability/src-gen" creationIcons="false"
-    editDirectory="/bpmnpl_variability.edit/src-gen" editorDirectory="/bpmnpl_variability.editor/src-gen"
+    modelDirectory="/bpmnpl_variability/src" creationIcons="false"
+    editDirectory="/bpmnpl_variability.edit/src" editorDirectory="/bpmnpl_variability.editor/src"
     modelPluginID="bpmnpl_variability" modelName="Bpmnpl_variability" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0"
     copyrightFields="false" operationReflection="true" importOrganizing="true">
@@ -41,6 +41,47 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute bpmnpl_variability.ecore#//BinaryExpression/operator"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bpmnpl_variability.ecore#//BinaryExpression/left"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference bpmnpl_variability.ecore#//BinaryExpression/right"/>
+    </genClasses>
+  </genPackages>
+  <genPackages prefix="Bpmn" ecorePackage="../../bpmn/model/bpmn.ecore#/">
+    <genClasses ecoreClass="../../bpmn/model/bpmn.ecore#//BusinessProcessDiagram">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../bpmn/model/bpmn.ecore#//BusinessProcessDiagram/pools"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="../../bpmn/model/bpmn.ecore#//BPMNElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../bpmn/model/bpmn.ecore#//BPMNElement/ID"/>
+    </genClasses>
+    <genClasses ecoreClass="../../bpmn/model/bpmn.ecore#//BPMNNode">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../bpmn/model/bpmn.ecore#//BPMNNode/in"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../bpmn/model/bpmn.ecore#//BPMNNode/out"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="../../bpmn/model/bpmn.ecore#//Swimlane">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../bpmn/model/bpmn.ecore#//Swimlane/name"/>
+    </genClasses>
+    <genClasses ecoreClass="../../bpmn/model/bpmn.ecore#//Lane">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../bpmn/model/bpmn.ecore#//Lane/elements"/>
+    </genClasses>
+    <genClasses ecoreClass="../../bpmn/model/bpmn.ecore#//Pool">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../bpmn/model/bpmn.ecore#//Pool/lanes"/>
+    </genClasses>
+    <genClasses ecoreClass="../../bpmn/model/bpmn.ecore#//Event"/>
+    <genClasses ecoreClass="../../bpmn/model/bpmn.ecore#//StartEvent"/>
+    <genClasses ecoreClass="../../bpmn/model/bpmn.ecore#//EndEvent"/>
+    <genClasses ecoreClass="../../bpmn/model/bpmn.ecore#//IntermediateEvent"/>
+    <genClasses ecoreClass="../../bpmn/model/bpmn.ecore#//Activity"/>
+    <genClasses ecoreClass="../../bpmn/model/bpmn.ecore#//Task"/>
+    <genClasses ecoreClass="../../bpmn/model/bpmn.ecore#//Flow">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../bpmn/model/bpmn.ecore#//Flow/in"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../bpmn/model/bpmn.ecore#//Flow/out"/>
+    </genClasses>
+    <genClasses ecoreClass="../../bpmn/model/bpmn.ecore#//SequenceFlow"/>
+    <genClasses ecoreClass="../../bpmn/model/bpmn.ecore#//Association"/>
+    <genClasses ecoreClass="../../bpmn/model/bpmn.ecore#//Gateway"/>
+    <genClasses ecoreClass="../../bpmn/model/bpmn.ecore#//XORGateway"/>
+    <genClasses ecoreClass="../../bpmn/model/bpmn.ecore#//ORGateway"/>
+    <genClasses ecoreClass="../../bpmn/model/bpmn.ecore#//ANDGateway"/>
+    <genClasses ecoreClass="../../bpmn/model/bpmn.ecore#//Artifact"/>
+    <genClasses ecoreClass="../../bpmn/model/bpmn.ecore#//Annotation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../bpmn/model/bpmn.ecore#//Annotation/description"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

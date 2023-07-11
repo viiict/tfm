@@ -1,0 +1,519 @@
+module bpmnpl2pnpl;
+create OUT: pns from IN: bpmn;
+--create OUTVar: pnplVariability from INVar: bpmnplVariability;
+--create OUT : pns, OUTVar : pnplVariability from IN : bpmn, INVar : bpmnplVariability;
+
+
+-------------------------------------------------------------------
+----------------------------- HELPERS -----------------------------
+-------------------------------------------------------------------
+helper context bpmn!Flow def: isCorrectString(s: String): Boolean =
+	s = self.ID;
+
+helper context bpmn!Flow def: isCorrectStartOrEndEvent(s: String): Boolean =
+	self.ID + '_Transition' = s;
+
+helper context bpmn!Flow def: isCorrectSequenceFlowOUT(s: String): Boolean =
+	s = self.ID;
+
+helper context pns!TPArc def: nameIN(): String =
+	self.name.split('__').at(1);
+
+helper context pns!PTArc def: nameOUT(): String =
+	if (self.name.split('__').size() > 1) then
+		self.name.split('__').at(2)
+	else
+		self.name.split('__').at(1)
+	endif;
+
+-------------------------------------------------------------------
+-------------------------- CALLED RULES ---------------------------
+-------------------------------------------------------------------
+rule TParc(e: pns!Transition, sf: bpmn!SequenceFlow){
+	to
+		a: pns!TPArc (
+			name <- sf.ID + '__' + e.name + '__tparc'
+		)
+	do{
+		a.input <- e;
+	}
+}
+
+rule PTarc(e: pns!Transition, sf: bpmn!SequenceFlow){
+	to
+		a: pns!PTArc (
+			name <- e.name + '__' + sf.ID + '__ptarc'
+		)
+		do{
+		a.output <- e;
+	}
+}
+
+
+rule TParcXOR(e: pns!Transition, sf: bpmn!SequenceFlow, index : Integer){
+	to
+		a: pns!TPArc (
+			name <- sf.ID + '__' + e.name + '__tparc'
+		)
+	do{
+		a.input <- e;
+	}
+}
+
+
+-------------------------------------------------------------------
+------------------------------ ROOT -------------------------------
+-------------------------------------------------------------------
+rule bpmn2pn {
+	from
+		bpmn: bpmn!Lane
+	to
+		pn: pns!PetriNet
+}
+
+-------------------------------------------------------------------
+------------------------------ FLOWS ------------------------------
+-------------------------------------------------------------------
+rule sFlowOUT2pn(sf: bpmn!SequenceFlow, a: pns!PTArc) {
+	to
+		psf: pns!Place (
+			marking <- 0,
+--			name <- sf.ID + a.name.split('_').last()
+			name <- sf.ID
+		)
+	do {
+		psf.outputs.add(a); 
+	}
+}
+
+rule sFlowIN2pn(sf: bpmn!SequenceFlow, a: pns!TPArc) {
+	do {
+		for(p in pns!Place.allInstances()){
+			if(sf.isCorrectString(p.name) = true){
+				p.inputs.add(a);
+			}
+		}
+	}
+}
+
+rule sFlowOUTStartXOR2pn(sf: bpmn!SequenceFlow, a: pns!PTArc) {
+	do {
+		for(p in pns!Place.allInstances()){
+			if(sf.isCorrectString(p.name) = true){
+				p.outputs.add(a);
+			}
+		}
+	}
+}
+
+rule sFlowInStartXOR2pn(sf: bpmn!SequenceFlow, a: pns!TPArc) {
+	to
+		psf: pns!Place (
+			marking <- 0,
+--			name <- sf.ID + a.name.split('_').last()
+			name <- sf.ID
+		)
+		
+	do {
+		psf.inputs.add(a);
+	}
+}
+
+-------------------------------------------------------------------
+--------------------------- ACTIVITIES ----------------------------
+-------------------------------------------------------------------
+rule Task2pn {
+	from
+		task: bpmn!Task
+	to
+		tt: pns!Transition (
+			name <- (task.ID)
+		)
+	do {
+		for(sf in task."in"){
+			thisModule.PTarc(tt, sf);
+		}
+		for(sf in task."out"){
+			thisModule.TParc(tt, sf);
+		}
+	}
+}
+
+-------------------------------------------------------------------
+----------------------------- EVENTS ------------------------------
+-------------------------------------------------------------------
+
+-- StartEvent to Petri Net
+rule startEvent2pn {
+	from
+		se: bpmn!StartEvent
+	to
+		tse: pns!Transition (
+			name <- (se.ID + '_Transition')
+		),
+		pse: pns!Place (
+			name <- (se.ID + '_Place'),
+			marking <- 1
+		),
+		ase1: pns!PTArc (
+			name <- (se.ID + '_Arc'),
+			input <- pse,
+			output <- tse
+		)
+	do {
+		for(sf in se."out"){
+			thisModule.TParc(tse, sf);
+		}
+	}
+}
+
+-- IntermediateEvent to Petri Net
+rule intermediateEvent2pn {
+	from
+		ie: bpmn!IntermediateEvent
+	to
+		tt: pns!Transition (
+			name <- (ie.ID)
+		)
+	do {
+		for(sf in ie."in"){
+			thisModule.PTarc(tt, sf);
+		}
+		for(sf in ie."out"){
+			thisModule.TParc(tt, sf);
+		}
+	}
+}
+
+-- EndEvent to Petri Net
+rule endEvent2pn {
+	from
+		ee: bpmn!EndEvent
+	to
+		tee: pns!Transition (
+			name <- (ee.ID + '_Transition')
+		),
+		pee: pns!Place (
+			name <- (ee.ID + '_Place'),
+			marking <- 0
+		),
+		aee: pns!TPArc (
+			name <- (ee.ID + '_Arc'),
+			input <- tee,
+			output <- pee
+		)
+	do {
+		for(sf in ee."in"){
+			thisModule.PTarc(tee, sf);
+		}
+	}
+}
+
+-------------------------------------------------------------------
+---------------------------- GATEWAYS -----------------------------
+-------------------------------------------------------------------
+rule ANDGateway {
+	from
+		andg: bpmn!ANDGateway
+	to
+		tt: pns!Transition (
+			name <- (andg.ID)
+		)
+	do {
+		for(sf in andg."in"){
+			thisModule.PTarc(tt, sf);
+		}
+		for(sf in andg."out"){
+			thisModule.TParc(tt, sf);
+		}
+	}
+}
+
+rule XORGateway {
+	from
+		xorg: bpmn!XORGateway
+	do {
+		if(xorg."out".size() > 1){	
+			for(sf in xorg."out"){
+					thisModule.XORStartHelper(xorg, xorg."in".first(), sf, xorg."out".indexOf(sf));
+			}
+		}else if (xorg."in".size() > 1){
+			for(sf in xorg."in"){
+					thisModule.XOREndHelper(xorg, sf, xorg."out".first(), xorg."in".indexOf(sf));
+			}
+		}else{
+			'NUNCA DEBERIA LLEGAR AQUI'.println();
+		}
+	}
+}
+
+
+rule XORStartHelper(xorg: bpmn!XORGateway, sfIn: bpmn!SequenceFlow, sfOut: bpmn!SequenceFlow, index : Integer) {
+	to
+		tt : pns!Transition(
+			name <- xorg.ID + sfOut.ID
+			),
+		sfInArc : pns!PTArc(
+			name <- xorg.ID + '__' + sfIn.ID + '__ptarc' + index.toString(),
+			output <- tt
+			)
+	do {
+		for(sf in xorg."in") {
+			
+			thisModule.TParcXOR(tt,sfOut, xorg."in".indexOf(sf));
+		
+		}
+	}
+}
+
+rule XOREndHelper(xorg: bpmn!XORGateway, sfIn: bpmn!SequenceFlow, sfOut: bpmn!SequenceFlow, index : Integer) {
+	to
+		tt : pns!Transition(
+			name <- xorg.ID + index.toString()
+			),
+		sfInArc : pns!TPArc(
+			name <- sfOut.ID + '__' + xorg.ID + '__tparc' + index.toString(),
+			input <- tt
+			)
+	do {
+		thisModule.PTarc(tt,sfIn);
+	}
+}
+---------------------------------------------------------------------
+---------------------------- VARIABILITY ----------------------------
+---------------------------------------------------------------------
+
+-------------------------------------------------------------------
+---------------------------- ROOT VAR -----------------------------
+-------------------------------------------------------------------
+
+--rule rootVar {
+--	from
+--		bpmnVar: bpmnplVariability!Variability
+--		
+--	to
+--		pnVar: pnplVariability!Variability (
+--			featuremodel <- bpmnVar.featuremodel,
+--			petrinet <- bpmnVar.bpmn
+--		)
+--}
+--
+--rule bpmnFileUri2pnsFileUri {
+--	from
+--		bpmnUri: bpmnplVariability!FileURI
+--		
+--	to
+--		pnUri: pnplVariability!FileURI (
+--			importURI <- bpmnUri.importURI	
+--		)
+--}
+
+--rule bpmnPC2pnsPC (bpmnPC: bpmnplVariability!PresenceCondition, pn: pns!PetriNet, pnVar: pnplVariability!Variability){
+--	to
+--		pnPC: pnplVariability!PresenceCondition(
+--			--elements <- bpmnPC.elements,
+--			expression <- bpmnPC.expression
+--		)
+--	do {
+--		for(e in bpmnPC.elements){
+--			for(pnPlace in pn.places){
+--				if(pnPlace.name.split('_').includes(e.ID) = true){
+--					pnPC.elements.add(pnPlace);
+--					'funcionaPlace'.println();
+--				}
+--			}
+--			for(pnTrans in pn.trans){
+--				if(pnTrans.name.split('_').includes(e.ID) = true){
+--					pnPC.elements.add(pnTrans);
+--					'funcionaTrans'.println();
+--				}				
+--			}
+--			for(pnArc in pn.arcs){
+--				if(pnArc.name.split('_').includes(e.ID) = true){
+--					pnPC.elements.add(pnArc);
+--					'funcionaArc'.println();
+--				}
+--			}
+--		}
+----		thisModule.resolveTemp(pnVar.presencecondition, pnPC);
+--	}
+--
+--}
+--
+--
+----rule addPC(pnVar: pnplVariability!Variability, pnPC: pnplVariability!PresenceCondition){
+----	do {
+----		'holaMundo'.println();
+----		pnVar.presencecondition.add(pnPC);
+----	}
+----}
+-----------------------------------------------------------------------
+------------------------------ EXPRESSION -----------------------------
+-----------------------------------------------------------------------
+--
+--
+--rule bpmnFeature2pnsFeature {
+--	from
+--		bpmnF: bpmnplVariability!Feature
+--		
+--	to
+--		pnF: pnplVariability!Feature(
+--			feature <- bpmnF.feature	
+--		)
+--}
+--
+--
+--rule bpmnUE2pnsUE {
+--	from 
+--		bpmnUE: bpmnplVariability!UnaryExpression
+--	to 
+--		pnUE: pnplVariability!UnaryExpression(
+--			operator <- bpmnUE.operator,
+--			right <-bpmnUE.right
+--		)
+--}
+--
+--rule bpmnBE2pnsBE {
+--	from 
+--		bpmnBE: bpmnplVariability!BinaryExpression
+--	to 
+--		pnBE: pnplVariability!BinaryExpression(
+--			operator <- bpmnBE.operator,
+--			right <-bpmnBE.right,
+--			left <- bpmnBE.left
+--		)
+--}
+
+
+--lazy rule
+--		for(pc in bpmnplVariability!PresenceCondition.allInstances()){
+--			thisModule.bpmnPC2pnsPC(pc, pns!PetriNet.allInstancesFrom('OUT').first());
+--		}
+--
+--		for(pc in pnplVariability!PresenceCondition.allInstances()) {
+--			'HOOOOOLAAAA'.println();
+--			pnplVariability!Variability.allInstances().first().presencecondition.add(pc);
+--			}
+--lazy rule thisistheendVAR{
+--	from
+--		pc: bpmnplVariability!PresenceCondition
+--
+--	do{
+--	}
+--}
+--		thisModule.bpmnPC2pnsPC(pc, pns!PetriNet.allInstancesFrom('OUT').first());
+		
+
+--		for(pnpc in pnplVariability!PresenceCondition.allInstances()) {
+--			'HOOOOOLAAAA'.println();
+--			pnplVariability!Variability.allInstances().first().presencecondition.add(pc);
+--			}
+---------------------------------------------------------------------
+------------------------------ ENDRULES -----------------------------
+---------------------------------------------------------------------
+endpoint rule thisistheend() {
+	do {
+		
+--		for(a in pns!PTArc.allInstancesFrom('OUT')) { 
+--			a.name.println();			 
+--		}
+--		for(a in pns!TPArc.allInstancesFrom('OUT')) {
+--			a.name.println();						
+--		}
+
+
+-- posible reforma del codigo
+
+		for(sf in bpmn!SequenceFlow.allInstances()){
+			if(not (sf."out".oclIsTypeOf(bpmn!XORGateway) and sf."out"."in".size()=1)){
+				for(a in pns!PTArc.allInstancesFrom('OUT')) {
+					if (sf.isCorrectString(a.nameOUT()) = true){
+						thisModule.sFlowOUT2pn(sf, a);
+					}
+				}
+			}
+			for(a in pns!TPArc.allInstancesFrom('OUT')) {
+				if (sf.isCorrectString(a.nameIN()) = true){
+					if(sf."out".oclIsTypeOf(bpmn!XORGateway) and sf."out"."in".size()=1){
+						a.name.println();
+						sf.ID.println();
+						thisModule.sFlowInStartXOR2pn(sf, a);
+					}
+					else{						
+						thisModule.sFlowIN2pn(sf, a);
+					}
+				}
+				else {
+					if (sf.isCorrectStartOrEndEvent(a.nameIN()) = true){
+						thisModule.sFlowIN2pn(sf, a);
+					}
+				}
+			}
+			if(sf."out".oclIsTypeOf(bpmn!XORGateway) and sf."out"."in".size()=1){
+				for(a in pns!PTArc.allInstancesFrom('OUT')) {
+					if (sf.isCorrectString(a.nameOUT()) = true){
+						thisModule.sFlowOUTStartXOR2pn(sf, a);
+					}
+				}
+			}
+		}
+
+-- reforma hasta aqui
+
+
+		for(a in pns!PTArc.allInstancesFrom('OUT')) {
+			pns!PetriNet.allInstancesFrom('OUT').first().arcs.add(a);
+		}
+		for(a in pns!TPArc.allInstancesFrom('OUT')) {
+			pns!PetriNet.allInstancesFrom('OUT').first().arcs.add(a);
+		}
+		for(t in pns!Transition.allInstancesFrom('OUT')) {
+			pns!PetriNet.allInstancesFrom('OUT').first().trans.add(t);
+		}
+		for(p in pns!Place.allInstancesFrom('OUT')) {
+			pns!PetriNet.allInstancesFrom('OUT').first().places.add(p);
+		}
+		
+		
+	}
+}
+
+ 
+
+--
+--		for(sf in bpmn!SequenceFlow.allInstances()){
+--			for(a in pns!PTArc.allInstancesFrom('OUT')) {
+--				if (sf.isCorrectString(a.nameOUT()) = true){
+--					if(sf."out".oclIsTypeOf(bpmn!XORGateway) and sf."out"."in".size()=1){
+--						for(psf in pns!Place.allInstancesFrom('OUT')){
+--							if(psf.name = sf.ID){
+--								thisModule.sFlowOUTStartXOR2pn(psf, a);
+--							}
+--							else {
+--					 			thisModule.sFlowOUT2pn(sf, a);															
+--							}
+--							
+--						} 
+--					}
+--					else{
+--						thisModule.sFlowOUT2pn(sf, a);						
+--					}
+--				}
+--				else if (sf.isCorrectStartOrEndEvent(a.nameOUT()) = true){
+--					thisModule.sFlowOUT2pn(sf, a);
+--				}		
+--			}
+
+--			for(a in pns!TPArc.allInstancesFrom('OUT')) {
+--				if (sf.isCorrectSequenceFlowIN(a.nameIN()) = true){
+--					for(p in pns!Place.allInstancesFrom('OUT')) {
+--						p.name.println();
+--						sf.ID.println();
+--						'-----------'.println();
+--						if(sf.isCorrectString(p.name) = true)
+--							thisModule.sFlowIN2pn(p, a);
+--					}
+--				}
+--			}
+
+

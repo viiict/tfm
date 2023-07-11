@@ -1,18 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="bpmnpl" version="12.0.0.2017041100">
-  <ownedViewpoints name="BPMN">
-    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="BPMNDiagram" domainClass="bpmn::BusinessProcessDiagram" enablePopupBars="true">
+  <ownedViewpoints name="BPMN" modelFileExtension="bpmn">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="BPMNPrivateDiagram" label="Private diagram" initialisation="true" domainClass="bpmn::Lane">
       <metamodel href="../../bpmn/model/bpmn.ecore#/"/>
       <metamodel href="../../bpmnpl_variability/model/bpmnpl_variability.ecore#/"/>
       <defaultLayer name="Default">
-        <nodeMappings name="Annotation" domainClass="bpmn::Annotation">
-          <style xsi:type="style:NoteDescription" labelSize="12" showIcon="false" labelExpression="feature:desc" labelPosition="node" resizeKind="NSEW">
+        <nodeMappings name="Task" deletionDescription="//@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNPrivateDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='deleteNode']" domainClass="bpmn::Task">
+          <style xsi:type="style:WorkspaceImageDescription" labelSize="10" showIcon="false" labelExpression="feature:ID" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" workspacePath="/bpmnpl/icons/task.png">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="XORGateway" deletionDescription="//@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNPrivateDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='deleteNode']" domainClass="bpmn::XORGateway">
+          <style xsi:type="style:WorkspaceImageDescription" labelSize="10" showIcon="false" labelExpression="feature:ID" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/bpmnpl/icons/gate_XOR.png">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="ORGateway" deletionDescription="//@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNPrivateDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='deleteNode']" domainClass="bpmn::ORGateway">
+          <style xsi:type="style:WorkspaceImageDescription" labelSize="10" showIcon="false" labelExpression="feature:ID" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/bpmnpl/icons/gate_OR.png">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="ANDGateway" deletionDescription="//@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNPrivateDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='deleteNode']" domainClass="bpmn::ANDGateway">
+          <style xsi:type="style:WorkspaceImageDescription" labelSize="10" showIcon="false" labelExpression="feature:ID" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/bpmnpl/icons/gate_AND.png">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="StartEvent" deletionDescription="//@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNPrivateDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='deleteNode']" domainClass="bpmn::StartEvent">
+          <style xsi:type="style:WorkspaceImageDescription" labelSize="12" labelExpression="feature:ID" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/bpmnpl/icons/event_ini.png">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="IntermediateEvent" deletionDescription="//@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNPrivateDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='deleteNode']" domainClass="bpmn::IntermediateEvent">
+          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="feature:ID" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/bpmnpl/icons/event_int.png">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="EndEvent" deletionDescription="//@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNPrivateDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='deleteNode']" domainClass="bpmn::EndEvent">
+          <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="feature:ID" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/bpmnpl/icons/event_fin.png">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="Annotation" deletionDescription="//@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNPrivateDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='deleteNode']" domainClass="bpmn::Annotation">
+          <style xsi:type="style:NoteDescription" labelSize="12" showIcon="false" labelExpression="feature:ID" labelPosition="node" resizeKind="NSEW">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
           </style>
         </nodeMappings>
-        <edgeMappings name="SequenceFlow" sourceMapping="//@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@containerMappings[name='Pool']/@subContainerMappings[name='Lane']/@subNodeMappings[name='BusinessRuleTask'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@containerMappings[name='Pool']/@subContainerMappings[name='Lane']/@subNodeMappings[name='ManualTask'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@containerMappings[name='Pool']/@subContainerMappings[name='Lane']/@subNodeMappings[name='MsgRTask'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@containerMappings[name='Pool']/@subContainerMappings[name='Lane']/@subNodeMappings[name='MsgSTask'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@containerMappings[name='Pool']/@subContainerMappings[name='Lane']/@subNodeMappings[name='NormalTask'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@containerMappings[name='Pool']/@subContainerMappings[name='Lane']/@subNodeMappings[name='ScriptTask'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@containerMappings[name='Pool']/@subContainerMappings[name='Lane']/@subNodeMappings[name='ServiceTask'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@containerMappings[name='Pool']/@subContainerMappings[name='Lane']/@subNodeMappings[name='UserTask']" targetMapping="//@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@containerMappings[name='Pool']/@subContainerMappings[name='Lane']/@subNodeMappings[name='BusinessRuleTask'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@containerMappings[name='Pool']/@subContainerMappings[name='Lane']/@subNodeMappings[name='ManualTask'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@containerMappings[name='Pool']/@subContainerMappings[name='Lane']/@subNodeMappings[name='MsgRTask'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@containerMappings[name='Pool']/@subContainerMappings[name='Lane']/@subNodeMappings[name='MsgSTask'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@containerMappings[name='Pool']/@subContainerMappings[name='Lane']/@subNodeMappings[name='NormalTask'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@containerMappings[name='Pool']/@subContainerMappings[name='Lane']/@subNodeMappings[name='ScriptTask'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@containerMappings[name='Pool']/@subContainerMappings[name='Lane']/@subNodeMappings[name='ServiceTask'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@containerMappings[name='Pool']/@subContainerMappings[name='Lane']/@subNodeMappings[name='UserTask']" targetFinderExpression="feature:out" sourceFinderExpression="feature:in" domainClass="bpmn::SequenceFlow" useDomainElement="true">
+        <edgeMappings name="SequenceFlow" sourceMapping="//@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNPrivateDiagram']/@defaultLayer/@nodeMappings[name='Task'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNPrivateDiagram']/@defaultLayer/@nodeMappings[name='StartEvent'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNPrivateDiagram']/@defaultLayer/@nodeMappings[name='ANDGateway'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNPrivateDiagram']/@defaultLayer/@nodeMappings[name='IntermediateEvent'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNPrivateDiagram']/@defaultLayer/@nodeMappings[name='ORGateway'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNPrivateDiagram']/@defaultLayer/@nodeMappings[name='XORGateway']" targetMapping="//@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNPrivateDiagram']/@defaultLayer/@nodeMappings[name='Task'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNPrivateDiagram']/@defaultLayer/@nodeMappings[name='EndEvent'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNPrivateDiagram']/@defaultLayer/@nodeMappings[name='XORGateway'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNPrivateDiagram']/@defaultLayer/@nodeMappings[name='ORGateway'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNPrivateDiagram']/@defaultLayer/@nodeMappings[name='IntermediateEvent'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNPrivateDiagram']/@defaultLayer/@nodeMappings[name='ANDGateway']" targetFinderExpression="feature:out" sourceFinderExpression="feature:in" domainClass="bpmn::SequenceFlow" useDomainElement="true">
           <style targetArrow="InputFillClosedArrow" routingStyle="manhattan">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <centerLabelStyleDescription labelSize="12" showIcon="false">
@@ -20,15 +62,7 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings name="MsgFlow" sourceMapping="//@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@containerMappings[name='Pool']/@subContainerMappings[name='Lane']/@subNodeMappings[name='MsgSTask']" targetMapping="//@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@containerMappings[name='Pool']/@subContainerMappings[name='Lane']/@subNodeMappings[name='MsgRTask']" targetFinderExpression="feature:out" sourceFinderExpression="feature:in" domainClass="bpmn::MessageFlow" useDomainElement="true">
-          <style lineStyle="dash" routingStyle="manhattan">
-            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <centerLabelStyleDescription labelSize="12" showIcon="false">
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            </centerLabelStyleDescription>
-          </style>
-        </edgeMappings>
-        <edgeMappings name="Association" sourceMapping="//@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@nodeMappings[name='Annotation'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@edgeMappings[name='MsgFlow'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@containerMappings[name='Pool'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@containerMappings[name='Pool']/@subContainerMappings[name='Lane'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@containerMappings[name='Pool']/@subContainerMappings[name='Lane']/@subNodeMappings[name='BusinessRuleTask'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@containerMappings[name='Pool']/@subContainerMappings[name='Lane']/@subNodeMappings[name='EndEvent'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@containerMappings[name='Pool']/@subContainerMappings[name='Lane']/@subNodeMappings[name='ExclusiveGateway'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@containerMappings[name='Pool']/@subContainerMappings[name='Lane']/@subNodeMappings[name='InclusiveGateway'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@containerMappings[name='Pool']/@subContainerMappings[name='Lane']/@subNodeMappings[name='IntermediateEvent'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@containerMappings[name='Pool']/@subContainerMappings[name='Lane']/@subNodeMappings[name='ManualTask'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@containerMappings[name='Pool']/@subContainerMappings[name='Lane']/@subNodeMappings[name='MsgRTask'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@containerMappings[name='Pool']/@subContainerMappings[name='Lane']/@subNodeMappings[name='MsgSTask'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@containerMappings[name='Pool']/@subContainerMappings[name='Lane']/@subNodeMappings[name='NormalTask'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@containerMappings[name='Pool']/@subContainerMappings[name='Lane']/@subNodeMappings[name='ParallelGateway'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@containerMappings[name='Pool']/@subContainerMappings[name='Lane']/@subNodeMappings[name='ScriptTask'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@containerMappings[name='Pool']/@subContainerMappings[name='Lane']/@subNodeMappings[name='ServiceTask'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@containerMappings[name='Pool']/@subContainerMappings[name='Lane']/@subNodeMappings[name='StartEvent'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@containerMappings[name='Pool']/@subContainerMappings[name='Lane']/@subNodeMappings[name='UserTask'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@edgeMappings[name='SequenceFlow']" targetMapping="//@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@nodeMappings[name='Annotation'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@edgeMappings[name='MsgFlow'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@containerMappings[name='Pool'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@containerMappings[name='Pool']/@subContainerMappings[name='Lane'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@containerMappings[name='Pool']/@subContainerMappings[name='Lane']/@subNodeMappings[name='BusinessRuleTask'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@containerMappings[name='Pool']/@subContainerMappings[name='Lane']/@subNodeMappings[name='EndEvent'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@containerMappings[name='Pool']/@subContainerMappings[name='Lane']/@subNodeMappings[name='ExclusiveGateway'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@containerMappings[name='Pool']/@subContainerMappings[name='Lane']/@subNodeMappings[name='InclusiveGateway'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@containerMappings[name='Pool']/@subContainerMappings[name='Lane']/@subNodeMappings[name='IntermediateEvent'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@containerMappings[name='Pool']/@subContainerMappings[name='Lane']/@subNodeMappings[name='ManualTask'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@containerMappings[name='Pool']/@subContainerMappings[name='Lane']/@subNodeMappings[name='MsgRTask'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@containerMappings[name='Pool']/@subContainerMappings[name='Lane']/@subNodeMappings[name='MsgSTask'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@containerMappings[name='Pool']/@subContainerMappings[name='Lane']/@subNodeMappings[name='NormalTask'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@containerMappings[name='Pool']/@subContainerMappings[name='Lane']/@subNodeMappings[name='ParallelGateway'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@containerMappings[name='Pool']/@subContainerMappings[name='Lane']/@subNodeMappings[name='ScriptTask'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@containerMappings[name='Pool']/@subContainerMappings[name='Lane']/@subNodeMappings[name='ServiceTask'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@containerMappings[name='Pool']/@subContainerMappings[name='Lane']/@subNodeMappings[name='StartEvent'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@containerMappings[name='Pool']/@subContainerMappings[name='Lane']/@subNodeMappings[name='UserTask'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@edgeMappings[name='SequenceFlow']" targetFinderExpression="feature:out" sourceFinderExpression="feature:in" domainClass="bpmn::Association" useDomainElement="true">
+        <edgeMappings name="Association" sourceMapping="//@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNPrivateDiagram']/@defaultLayer/@nodeMappings[name='Annotation'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNPrivateDiagram']/@defaultLayer/@nodeMappings[name='EndEvent'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNPrivateDiagram']/@defaultLayer/@nodeMappings[name='XORGateway'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNPrivateDiagram']/@defaultLayer/@nodeMappings[name='ORGateway'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNPrivateDiagram']/@defaultLayer/@nodeMappings[name='IntermediateEvent'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNPrivateDiagram']/@defaultLayer/@nodeMappings[name='Task'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNPrivateDiagram']/@defaultLayer/@nodeMappings[name='ANDGateway'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNPrivateDiagram']/@defaultLayer/@nodeMappings[name='StartEvent'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNPrivateDiagram']/@defaultLayer/@edgeMappings[name='SequenceFlow']" targetMapping="//@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNPrivateDiagram']/@defaultLayer/@nodeMappings[name='Annotation'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNPrivateDiagram']/@defaultLayer/@nodeMappings[name='EndEvent'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNPrivateDiagram']/@defaultLayer/@nodeMappings[name='XORGateway'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNPrivateDiagram']/@defaultLayer/@nodeMappings[name='ORGateway'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNPrivateDiagram']/@defaultLayer/@nodeMappings[name='IntermediateEvent'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNPrivateDiagram']/@defaultLayer/@nodeMappings[name='Task'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNPrivateDiagram']/@defaultLayer/@nodeMappings[name='ANDGateway'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNPrivateDiagram']/@defaultLayer/@nodeMappings[name='StartEvent'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNPrivateDiagram']/@defaultLayer/@edgeMappings[name='SequenceFlow']" targetFinderExpression="feature:out" sourceFinderExpression="feature:in" domainClass="bpmn::Association" useDomainElement="true">
           <style lineStyle="dot" targetArrow="NoDecoration" sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <centerLabelStyleDescription labelSize="12">
@@ -36,385 +70,158 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <containerMappings name="Pool" domainClass="bpmn::Pool" childrenPresentation="VerticalStack">
-          <subContainerMappings name="Lane" semanticCandidatesExpression="feature:eAllContents" domainClass="bpmn::Lane">
-            <subNodeMappings name="NormalTask" semanticCandidatesExpression="feature:elements" domainClass="bpmn::NormalTask">
-              <style xsi:type="style:WorkspaceImageDescription" labelSize="10" showIcon="false" labelExpression="feature:description" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" workspacePath="/bpmnpl/icons3/activities/none_task.png">
-                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              </style>
-            </subNodeMappings>
-            <subNodeMappings name="UserTask" semanticCandidatesExpression="feature:elements" domainClass="bpmn::UserTask">
-              <style xsi:type="style:WorkspaceImageDescription" labelSize="10" showIcon="false" labelExpression="feature:description" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" workspacePath="/bpmnpl/icons3/activities/user_task_icon.png">
-                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              </style>
-            </subNodeMappings>
-            <subNodeMappings name="ManualTask" semanticCandidatesExpression="feature:elements" domainClass="bpmn::ManualTask">
-              <style xsi:type="style:WorkspaceImageDescription" labelSize="10" showIcon="false" labelExpression="feature:description" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" workspacePath="/bpmnpl/icons3/activities/manual_task_icon.png">
-                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              </style>
-            </subNodeMappings>
-            <subNodeMappings name="ServiceTask" semanticCandidatesExpression="feature:elements" domainClass="bpmn::ServiceTask">
-              <style xsi:type="style:WorkspaceImageDescription" labelSize="10" showIcon="false" labelExpression="feature:description" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" workspacePath="/bpmnpl/icons3/activities/service_task_icon.png">
-                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              </style>
-            </subNodeMappings>
-            <subNodeMappings name="MsgRTask" semanticCandidatesExpression="feature:elements" domainClass="bpmn::MsgReceiveTask">
-              <style xsi:type="style:WorkspaceImageDescription" labelSize="10" showIcon="false" labelExpression="feature:description" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" workspacePath="/bpmnpl/icons3/activities/receive_task_icon.png">
-                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              </style>
-            </subNodeMappings>
-            <subNodeMappings name="MsgSTask" semanticCandidatesExpression="feature:elements" domainClass="bpmn::MsgSendTask">
-              <style xsi:type="style:WorkspaceImageDescription" labelSize="10" showIcon="false" labelExpression="feature:description" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" workspacePath="/bpmnpl/icons3/activities/receive_task_icon.png">
-                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              </style>
-            </subNodeMappings>
-            <subNodeMappings name="ScriptTask" semanticCandidatesExpression="feature:elements" domainClass="bpmn::ScriptTask">
-              <style xsi:type="style:WorkspaceImageDescription" labelSize="10" showIcon="false" labelExpression="feature:description" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" workspacePath="/bpmnpl/icons3/activities/script-send_task_icon.png">
-                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              </style>
-            </subNodeMappings>
-            <subNodeMappings name="BusinessRuleTask" semanticCandidatesExpression="feature:elements" domainClass="bpmn::BusinessRuleTask">
-              <style xsi:type="style:WorkspaceImageDescription" labelSize="10" showIcon="false" labelExpression="feature:description" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" workspacePath="/bpmnpl/icons3/activities/business_task_icon.png">
-                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              </style>
-            </subNodeMappings>
-            <subNodeMappings name="ExclusiveGateway" semanticCandidatesExpression="feature:elements" domainClass="bpmn::ExclusiveGateway">
-              <style xsi:type="style:WorkspaceImageDescription" labelSize="10" showIcon="false" labelExpression="" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" workspacePath="/bpmnpl/icons3/gateways/exclusive_gateway.png">
-                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              </style>
-            </subNodeMappings>
-            <subNodeMappings name="InclusiveGateway" semanticCandidatesExpression="feature:elements" domainClass="bpmn::InclusiveGateway">
-              <style xsi:type="style:WorkspaceImageDescription" labelSize="10" showIcon="false" labelExpression="" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" workspacePath="/bpmnpl/icons3/gateways/inclusive_gateway.png">
-                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              </style>
-            </subNodeMappings>
-            <subNodeMappings name="ParallelGateway" semanticCandidatesExpression="feature:elements" domainClass="bpmn::ParallelGateway">
-              <style xsi:type="style:WorkspaceImageDescription" labelSize="10" showIcon="false" labelExpression="" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" workspacePath="/bpmnpl/icons3/gateways/parallel_gateway.png">
-                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              </style>
-            </subNodeMappings>
-            <subNodeMappings name="StartEvent" semanticCandidatesExpression="feature:elements" domainClass="bpmn::StartEvent">
-              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" workspacePath="/bpmnpl/icons3/events/start_none.png">
-                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              </style>
-            </subNodeMappings>
-            <subNodeMappings name="EndEvent" semanticCandidatesExpression="feature:elements" domainClass="bpmn::EndEvent">
-              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" workspacePath="/bpmnpl/icons3/events/terminate_none.png">
-                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              </style>
-            </subNodeMappings>
-            <subNodeMappings name="IntermediateEvent" semanticCandidatesExpression="feature:elements" domainClass="bpmn::IntermediateEvent"/>
-            <style xsi:type="style:FlatContainerStyleDescription" arcWidth="200" borderSizeComputationExpression="1" labelSize="10" showIcon="false" labelExpression="service:getLaneName()" labelAlignment="LEFT" widthComputationExpression="130" heightComputationExpression="30">
-              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-            </style>
-          </subContainerMappings>
-          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="service:getPoolName()">
-            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-          </style>
-        </containerMappings>
-        <toolSections name="SwimLanes">
-          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Pool" containerMappings="//@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@containerMappings[name='Pool']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="bpmn::Pool" referenceName="pools">
-                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
-                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="bpmn::Lane" referenceName="lanes" variableName="instance2"/>
-                </subModelOperations>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Lane" containerMappings="//@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@containerMappings[name='Pool']/@subContainerMappings[name='Lane']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="bpmn::Lane" referenceName="lanes"/>
-            </initialOperation>
-          </ownedTools>
-        </toolSections>
         <toolSections name="Activities">
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="NormalTask" nodeMappings="//@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@containerMappings[name='Pool']/@subContainerMappings[name='Lane']/@subNodeMappings[name='NormalTask']">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Task" nodeMappings="//@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNPrivateDiagram']/@defaultLayer/@nodeMappings[name='Task']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[self.eContainer().eContainer()/]">
-                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="bpmn::NormalTask" referenceName="elements"/>
-                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                    <subModelOperations xsi:type="tool_1:SetValue" featureName="elements" valueExpression="var:instance"/>
-                  </subModelOperations>
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="bpmn::Task" referenceName="elements">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="ID" valueExpression="Write something!"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="UserTask" nodeMappings="//@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@containerMappings[name='Pool']/@subContainerMappings[name='Lane']/@subNodeMappings[name='UserTask']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
+          <ownedTools xsi:type="tool:DeleteElementDescription" name="deleteNode" label="delete Node">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <containerView name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[self.eContainer().eContainer()/]">
-                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="bpmn::UserTask" referenceName="elements"/>
-                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                    <subModelOperations xsi:type="tool_1:SetValue" featureName="elements" valueExpression="var:instance"/>
-                  </subModelOperations>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool_1:For" expression="feature:in">
+                  <subModelOperations xsi:type="tool_1:RemoveElement"/>
                 </subModelOperations>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="ManualTask" nodeMappings="//@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@containerMappings[name='Pool']/@subContainerMappings[name='Lane']/@subNodeMappings[name='ManualTask']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[self.eContainer().eContainer()/]">
-                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="bpmn::ManualTask" referenceName="elements"/>
-                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                    <subModelOperations xsi:type="tool_1:SetValue" featureName="elements" valueExpression="var:instance"/>
-                  </subModelOperations>
+                <subModelOperations xsi:type="tool_1:For" expression="feature:out">
+                  <subModelOperations xsi:type="tool_1:RemoveElement"/>
                 </subModelOperations>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="ServiceTask" nodeMappings="//@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@containerMappings[name='Pool']/@subContainerMappings[name='Lane']/@subNodeMappings[name='ServiceTask']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[self.eContainer().eContainer()/]">
-                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="bpmn::ServiceTask" referenceName="elements"/>
-                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                    <subModelOperations xsi:type="tool_1:SetValue" featureName="elements" valueExpression="var:instance"/>
-                  </subModelOperations>
-                </subModelOperations>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="MsgRTask" nodeMappings="//@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@containerMappings[name='Pool']/@subContainerMappings[name='Lane']/@subNodeMappings[name='MsgRTask']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[self.eContainer().eContainer()/]">
-                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="bpmn::MsgReceiveTask" referenceName="elements"/>
-                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                    <subModelOperations xsi:type="tool_1:SetValue" featureName="elements" valueExpression="var:instance"/>
-                  </subModelOperations>
-                </subModelOperations>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="MsgSTask" nodeMappings="//@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@containerMappings[name='Pool']/@subContainerMappings[name='Lane']/@subNodeMappings[name='MsgSTask']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[self.eContainer().eContainer()/]">
-                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="bpmn::MsgSendTask" referenceName="elements"/>
-                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                    <subModelOperations xsi:type="tool_1:SetValue" featureName="elements" valueExpression="var:instance"/>
-                  </subModelOperations>
-                </subModelOperations>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="ScriptTask" nodeMappings="//@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@containerMappings[name='Pool']/@subContainerMappings[name='Lane']/@subNodeMappings[name='ScriptTask']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[self.eContainer().eContainer()/]">
-                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="bpmn::ScriptTask" referenceName="elements"/>
-                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                    <subModelOperations xsi:type="tool_1:SetValue" featureName="elements" valueExpression="var:instance"/>
-                  </subModelOperations>
-                </subModelOperations>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="BusinessRuleTask" nodeMappings="//@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@containerMappings[name='Pool']/@subContainerMappings[name='Lane']/@subNodeMappings[name='BusinessRuleTask']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[self.eContainer().eContainer()/]">
-                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="bpmn::BusinessRuleTask" referenceName="elements"/>
-                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                    <subModelOperations xsi:type="tool_1:SetValue" featureName="elements" valueExpression="var:instance"/>
-                  </subModelOperations>
-                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:RemoveElement"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
         </toolSections>
         <toolSections name="Events">
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="StartEvent" nodeMappings="//@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@containerMappings[name='Pool']/@subContainerMappings[name='Lane']/@subNodeMappings[name='StartEvent']">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="StartEvent" label="Start event" nodeMappings="//@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNPrivateDiagram']/@defaultLayer/@nodeMappings[name='StartEvent']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[self.eContainer().eContainer()/]">
-                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="bpmn::StartEvent" referenceName="elements">
-                    <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                      <subModelOperations xsi:type="tool_1:SetValue" featureName="elements" valueExpression="instance"/>
-                    </subModelOperations>
-                  </subModelOperations>
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="bpmn::StartEvent" referenceName="elements">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="ID" valueExpression="Write something!"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="IntermediateEvent" nodeMappings="//@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@containerMappings[name='Pool']/@subContainerMappings[name='Lane']/@subNodeMappings[name='IntermediateEvent']">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="IntermediateEvent" label="Intermediate event" nodeMappings="//@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNPrivateDiagram']/@defaultLayer/@nodeMappings[name='IntermediateEvent']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[self.eContainer().eContainer()/]">
-                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="bpmn::IntermediateEvent" referenceName="elements"/>
-                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                    <subModelOperations xsi:type="tool_1:SetValue" featureName="elements" valueExpression="var:instance"/>
-                  </subModelOperations>
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="bpmn::IntermediateEvent" referenceName="elements">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="ID" valueExpression="Write something!"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="EndEvent" nodeMappings="//@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@containerMappings[name='Pool']/@subContainerMappings[name='Lane']/@subNodeMappings[name='EndEvent']">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="EndEvent" label="End event" nodeMappings="//@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNPrivateDiagram']/@defaultLayer/@nodeMappings[name='EndEvent']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[self.eContainer().eContainer()/]">
-                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="bpmn::EndEvent" referenceName="elements"/>
-                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                    <subModelOperations xsi:type="tool_1:SetValue" featureName="elements" valueExpression="var:instance"/>
-                  </subModelOperations>
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="bpmn::EndEvent" referenceName="elements">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="ID" valueExpression="Write something!"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
         </toolSections>
         <toolSections name="Gateways">
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="ParallelGateway" nodeMappings="//@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@containerMappings[name='Pool']/@subContainerMappings[name='Lane']/@subNodeMappings[name='ParallelGateway']">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="ANDGateway" label="AND gateway" nodeMappings="//@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNPrivateDiagram']/@defaultLayer/@nodeMappings[name='ANDGateway']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[self.eContainer().eContainer()/]">
-                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="bpmn::ParallelGateway" referenceName="elements"/>
-                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                    <subModelOperations xsi:type="tool_1:SetValue" featureName="elements" valueExpression="var:instance"/>
-                  </subModelOperations>
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="bpmn::ANDGateway" referenceName="elements">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="ID" valueExpression="Write something!"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="InclusiveGateway" nodeMappings="//@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@containerMappings[name='Pool']/@subContainerMappings[name='Lane']/@subNodeMappings[name='InclusiveGateway']">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="ORGateway" label="OR gateway" nodeMappings="//@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNPrivateDiagram']/@defaultLayer/@nodeMappings[name='ORGateway']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[self.eContainer().eContainer()/]">
-                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="bpmn::InclusiveGateway" referenceName="elements"/>
-                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                    <subModelOperations xsi:type="tool_1:SetValue" featureName="elements" valueExpression="var:instance"/>
-                  </subModelOperations>
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="bpmn::ORGateway" referenceName="elements">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="ID" valueExpression="Write something!"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="ExclusiveGateway" nodeMappings="//@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@containerMappings[name='Pool']/@subContainerMappings[name='Lane']/@subNodeMappings[name='ExclusiveGateway']">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="XORGateway" label="XOR gateway" nodeMappings="//@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNPrivateDiagram']/@defaultLayer/@nodeMappings[name='XORGateway']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[self.eContainer().eContainer()/]">
-                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="bpmn::ExclusiveGateway" referenceName="elements"/>
-                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                    <subModelOperations xsi:type="tool_1:SetValue" featureName="elements" valueExpression="var:instance"/>
-                  </subModelOperations>
-                </subModelOperations>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-        </toolSections>
-        <toolSections name="Flows">
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="SequenceFlow" edgeMappings="//@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@edgeMappings[name='SequenceFlow']">
-            <sourceVariable name="source"/>
-            <targetVariable name="target"/>
-            <sourceViewVariable name="sourceView"/>
-            <targetViewVariable name="targetView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[source.eContainer(&quot;BusinessProcessDiagram&quot;)/]">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="bpmn::SequenceFlow" referenceName="elements">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="in" valueExpression="var:source">
-                    <subModelOperations xsi:type="tool_1:SetValue" featureName="out" valueExpression="var:target"/>
-                  </subModelOperations>
-                </subModelOperations>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="MesaggeFlow" edgeMappings="//@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@edgeMappings[name='MsgFlow']">
-            <sourceVariable name="source"/>
-            <targetVariable name="target"/>
-            <sourceViewVariable name="sourceView"/>
-            <targetViewVariable name="targetView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[source.eContainer(&quot;BusinessProcessDiagram&quot;)/]">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="bpmn::MessageFlow" referenceName="elements">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="in" valueExpression="var:source">
-                    <subModelOperations xsi:type="tool_1:SetValue" featureName="out" valueExpression="var:target"/>
-                  </subModelOperations>
-                </subModelOperations>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Association" edgeMappings="//@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@edgeMappings[name='Association']">
-            <sourceVariable name="source"/>
-            <targetVariable name="target"/>
-            <sourceViewVariable name="sourceView"/>
-            <targetViewVariable name="targetView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:If" conditionExpression="service:isAnnotation(source, target)">
-                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[source.eContainer(&quot;BusinessProcessDiagram&quot;)/]">
-                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="bpmn::Association" referenceName="elements">
-                    <subModelOperations xsi:type="tool_1:SetValue" featureName="in" valueExpression="var:source">
-                      <subModelOperations xsi:type="tool_1:SetValue" featureName="out" valueExpression="var:target"/>
-                    </subModelOperations>
-                  </subModelOperations>
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="bpmn::XORGateway" referenceName="elements">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="ID" valueExpression="Write something!"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
         </toolSections>
         <toolSections name="Artifacts">
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="Annotation" nodeMappings="//@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@nodeMappings[name='Annotation']">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Annotation" nodeMappings="//@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNPrivateDiagram']/@defaultLayer/@nodeMappings[name='Annotation']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="bpmn::Annotation" referenceName="elements"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="bpmn::Annotation" referenceName="elements">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="ID" valueExpression="service:giveID()"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="description" valueExpression="Write something!"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="Flows">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="SequenceFlow" edgeMappings="//@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNPrivateDiagram']/@defaultLayer/@edgeMappings[name='SequenceFlow']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="feature:eContainer">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="bpmn::SequenceFlow" referenceName="elements">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="in" valueExpression="var:source">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="out" valueExpression="var:target"/>
+                  </subModelOperations>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="ID" valueExpression="service:giveID()"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Association" edgeMappings="//@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNPrivateDiagram']/@defaultLayer/@edgeMappings[name='Association']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:If" conditionExpression="service:isAnnotation(source, target)">
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="feature:eContainer">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="bpmn::Association" referenceName="elements">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="in" valueExpression="var:source">
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="out" valueExpression="var:target"/>
+                    </subModelOperations>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="ID" valueExpression="service:giveID()"/>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
             </initialOperation>
           </ownedTools>
         </toolSections>
       </defaultLayer>
       <additionalLayers name="ProductLines">
-        <edgeMappings name="PCtoSomething" sourceMapping="//@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@additionalLayers[name='ProductLines']/@containerMappings[name='PresenceConditionContainer']" targetMapping="//@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@nodeMappings[name='Annotation'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@edgeMappings[name='Association'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@edgeMappings[name='MsgFlow'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@containerMappings[name='Pool'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@containerMappings[name='Pool']/@subContainerMappings[name='Lane'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@containerMappings[name='Pool']/@subContainerMappings[name='Lane']/@subNodeMappings[name='BusinessRuleTask'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@containerMappings[name='Pool']/@subContainerMappings[name='Lane']/@subNodeMappings[name='EndEvent'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@containerMappings[name='Pool']/@subContainerMappings[name='Lane']/@subNodeMappings[name='ExclusiveGateway'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@containerMappings[name='Pool']/@subContainerMappings[name='Lane']/@subNodeMappings[name='InclusiveGateway'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@containerMappings[name='Pool']/@subContainerMappings[name='Lane']/@subNodeMappings[name='IntermediateEvent'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@containerMappings[name='Pool']/@subContainerMappings[name='Lane']/@subNodeMappings[name='ManualTask'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@containerMappings[name='Pool']/@subContainerMappings[name='Lane']/@subNodeMappings[name='MsgRTask'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@containerMappings[name='Pool']/@subContainerMappings[name='Lane']/@subNodeMappings[name='MsgSTask'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@containerMappings[name='Pool']/@subContainerMappings[name='Lane']/@subNodeMappings[name='NormalTask'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@containerMappings[name='Pool']/@subContainerMappings[name='Lane']/@subNodeMappings[name='ParallelGateway'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@containerMappings[name='Pool']/@subContainerMappings[name='Lane']/@subNodeMappings[name='ScriptTask'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@containerMappings[name='Pool']/@subContainerMappings[name='Lane']/@subNodeMappings[name='ServiceTask'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@containerMappings[name='Pool']/@subContainerMappings[name='Lane']/@subNodeMappings[name='StartEvent'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@containerMappings[name='Pool']/@subContainerMappings[name='Lane']/@subNodeMappings[name='UserTask'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNDiagram']/@defaultLayer/@edgeMappings[name='SequenceFlow']" targetFinderExpression="feature:elements">
+        <edgeMappings name="PCtoSomething" sourceMapping="//@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNPrivateDiagram']/@additionalLayers[name='ProductLines']/@containerMappings[name='PresenceConditionContainer']" targetMapping="//@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNPrivateDiagram']/@defaultLayer/@nodeMappings[name='Annotation'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNPrivateDiagram']/@defaultLayer/@edgeMappings[name='Association'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNPrivateDiagram']/@defaultLayer/@nodeMappings[name='EndEvent'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNPrivateDiagram']/@defaultLayer/@nodeMappings[name='XORGateway'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNPrivateDiagram']/@defaultLayer/@nodeMappings[name='ORGateway'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNPrivateDiagram']/@defaultLayer/@nodeMappings[name='IntermediateEvent'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNPrivateDiagram']/@defaultLayer/@nodeMappings[name='Task'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNPrivateDiagram']/@defaultLayer/@nodeMappings[name='ANDGateway'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNPrivateDiagram']/@defaultLayer/@nodeMappings[name='StartEvent'] //@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNPrivateDiagram']/@defaultLayer/@edgeMappings[name='SequenceFlow']" targetFinderExpression="feature:elements">
           <style sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription labelSize="12">
@@ -423,31 +230,41 @@
           </style>
         </edgeMappings>
         <containerMappings name="PresenceConditionContainer" domainClass="bpmnpl_variability::PresenceCondition" childrenPresentation="List">
-          <subNodeMappings name="ExpressionNode" semanticCandidatesExpression="feature:eAllContents" domainClass="bpmnpl_variability::Expression">
-            <style xsi:type="style:NoteDescription" labelSize="12" labelPosition="node" resizeKind="NSEW">
+          <subNodeMappings name="ExpressionNode" semanticCandidatesExpression="feature:expression" domainClass="bpmnpl_variability::Expression">
+            <style xsi:type="style:NoteDescription" labelSize="12" showIcon="false" labelExpression="service:PresenceConditionS()" labelPosition="node" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='yellow']"/>
             </style>
           </subNodeMappings>
-          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12">
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="" hideLabelByDefault="true">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='yellow']"/>
             <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='yellow']"/>
           </style>
         </containerMappings>
-        <toolSections name="PresenceCondition">
-          <ownedTools xsi:type="tool_1:ToolDescription" name="CreatePC">
+        <toolSections name="hello">
+          <ownedTools xsi:type="tool_1:ToolDescription" name="PresenceCondition" label="Create presence condition" precondition="aql:if (self.oclIsKindOf(bpmn::Activity)) then true else if (self.oclIsKindOf(bpmn::Gateway) ) then true else if (self.oclIsKindOf(bpmn::Event)) then true else if (self.oclIsKindOf(bpmn::SequenceFlow)) then true else false endif endif endif endif">
             <element name="element"/>
             <elementView name="elementView"/>
-            <initialOperation/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ExternalJavaAction" name="CreatePC" precondition="[thisEObject.oclIsKindOf(BPMNElement)/]" id="CreatePresenceConditionExt">
+                <parameters name="element" value="aql:self"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="PCtoElements" label="pc to elements" edgeMappings="//@ownedViewpoints[name='BPMN']/@ownedRepresentations[name='BPMNPrivateDiagram']/@additionalLayers[name='ProductLines']/@edgeMappings[name='PCtoSomething']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="elements" valueExpression="var:target"/>
+            </initialOperation>
           </ownedTools>
         </toolSections>
       </additionalLayers>
-    </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_1:DiagramDescription" enablePopupBars="true">
-      <defaultLayer name="Default"/>
     </ownedRepresentations>
     <ownedJavaExtensions qualifiedClassName="bpmnpl.Services"/>
   </ownedViewpoints>

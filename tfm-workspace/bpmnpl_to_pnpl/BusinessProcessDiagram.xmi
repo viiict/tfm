@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:BusinessProcessDiagram
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:bpmn="http://www.example.org/bpmn"
+    xsi:schemaLocation="http://www.example.org/bpmn ../bpmn/model/bpmn.ecore">
+  <elements
+      xsi:type="bpmn:StartEvent"
+      ID="se"
+      in="sf0"/>
+  <elements
+      xsi:type="bpmn:ExclusiveGateway"
+      ID="xg"
+      in="sf1 sf2"
+      out="sf0"/>
+  <elements
+      xsi:type="bpmn:NormalTask"
+      ID="nt1"
+      out="sf1"/>
+  <elements
+      xsi:type="bpmn:NormalTask"
+      ID="nt2"
+      out="sf2"/>
+  <elements
+      xsi:type="bpmn:SequenceFlow"
+      ID="sf0"
+      in="se"
+      out="xg"/>
+  <elements
+      xsi:type="bpmn:SequenceFlow"
+      ID="sf1"
+      in="xg"
+      out="nt1"/>
+  <elements
+      xsi:type="bpmn:SequenceFlow"
+      ID="sf2"
+      in="xg"
+      out="nt2"/>
+</bpmn:BusinessProcessDiagram>

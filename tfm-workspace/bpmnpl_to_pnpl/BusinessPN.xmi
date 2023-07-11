@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<ex:PetriNet xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ex="http://www.petrinets.org/">
+  <places name="sf0" outputs="//@arcs.0" inputs="//@arcs.6"/>
+  <places name="sf1" outputs="//@arcs.1" inputs="//@arcs.7"/>
+  <places name="sf2" outputs="//@arcs.2" inputs="//@arcs.8"/>
+  <places name="sePlace" marking="1" outputs="//@arcs.3"/>
+  <places name="xgBasePlace" outputs="//@arcs.4 //@arcs.5" inputs="//@arcs.9"/>
+  <trans name="seTransition" inputs="//@arcs.0 //@arcs.3"/>
+  <trans name="nt1" outputs="//@arcs.7"/>
+  <trans name="nt2" outputs="//@arcs.8"/>
+  <trans name="xgBaseTransition" inputs="//@arcs.1 //@arcs.2" outputs="//@arcs.6 //@arcs.9"/>
+  <trans name="sf1Transitionador" inputs="//@arcs.4"/>
+  <trans name="sf2Transitionador" inputs="//@arcs.5"/>
+  <arcs xsi:type="ex:PTArc" input="//@places.0" output="//@trans.0"/>
+  <arcs xsi:type="ex:PTArc" input="//@places.1" output="//@trans.3"/>
+  <arcs xsi:type="ex:PTArc" input="//@places.2" output="//@trans.3"/>
+  <arcs xsi:type="ex:PTArc" name="seArc" input="//@places.3" output="//@trans.0"/>
+  <arcs xsi:type="ex:PTArc" name="sf1arcAux" input="//@places.4" output="//@trans.4"/>
+  <arcs xsi:type="ex:PTArc" name="sf2arcAux" input="//@places.4" output="//@trans.5"/>
+  <arcs xsi:type="ex:TPArc" input="//@trans.3" output="//@places.0"/>
+  <arcs xsi:type="ex:TPArc" input="//@trans.1" output="//@places.1"/>
+  <arcs xsi:type="ex:TPArc" input="//@trans.2" output="//@places.2"/>
+  <arcs xsi:type="ex:TPArc" name="xgBaseArc" input="//@trans.3" output="//@places.4"/>
+</ex:PetriNet>

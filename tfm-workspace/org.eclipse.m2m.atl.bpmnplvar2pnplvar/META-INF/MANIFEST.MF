@@ -1,0 +1,25 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ATL org.eclipse.m2m.atl.bpmnplvar2pnplvar Transformation Runtime Plug-in
+Bundle-SymbolicName: org.eclipse.m2m.atl.bpmnplvar2pnplvar;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: Eclipse Modeling Project
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.m2m.atl.engine.emfvm,
+ org.eclipse.ui,
+ pnpl_variability.editor.ui;bundle-version="1.0.0",
+ pns;bundle-version="1.0.0",
+ pns.edit;bundle-version="1.0.0",
+ pns.editor;bundle-version="1.0.0",
+ bpmnpl_variability;bundle-version="0.1.0",
+ bpmnpl_variability.edit;bundle-version="1.0.0",
+ bpmnpl_variability.editor;bundle-version="1.0.0",
+ pnpl_variability;bundle-version="1.0.0",
+ pnpl_variability.editor;bundle-version="1.0.0",
+ pnpl_variability.editor.ide;bundle-version="1.0.0",
+ bpmn;bundle-version="0.1.0",
+ bpmn.edit;bundle-version="1.0.0",
+ bpmn.editor;bundle-version="1.0.0"
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Eclipse-LazyStart: false
+Import-Package: org.eclipse.core.resources

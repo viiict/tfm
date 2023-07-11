@@ -7,4 +7,11 @@
 	       name="bpmnpl">
     </component>
   </extension>
+  <extension
+        point="org.eclipse.sirius.externalJavaAction">
+     <javaActions
+           actionClass="variabilityCalls.PresenceConditionCreate"
+           id="CreatePresenceConditionExt">
+     </javaActions>
+  </extension>
 </plugin>

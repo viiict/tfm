@@ -1,0 +1,170 @@
+module RN2PN2;
+
+-- @path railNet=/railNet/railNet.ecore
+-- @path petriNet=/petriNet2/petriNet2.ecore
+
+create OUT: petriNet from IN: railNet;
+
+
+-------------------------------------------------------------------
+
+----------- HELPERS -----------------------------------------------
+
+-------------------------------------------------------------------
+
+
+helper context railNet!Unit def: isSimpleUnit(): Boolean =
+	if self.oclIsTypeOf(railNet!LinearUnit) or self.oclIsTypeOf(railNet!StartUnit) or 
+		self.oclIsTypeOf(railNet!EndUnit) or self.oclIsTypeOf(railNet!SwitchPoint) then
+		true
+	else
+		false
+	endif;
+
+helper context railNet!Unit def: isComplexUnit(): Boolean = 
+	if self.oclIsTypeOf(railNet!JoinPoint) or self.oclIsTypeOf(railNet!Crossover) or self.oclIsTypeOf(railNet!SwitchableCrossover)then
+		true
+	else
+		false
+	endif;
+
+-------------------------------------------------------------------
+
+----------- RULES -----------------------------------------------
+
+-------------------------------------------------------------------
+
+
+rule railNet2petriNet {
+	from 
+		n : railNet!Net
+	to
+		p : petriNet!PetriNet(
+			id <- n.id, 
+			name <- n.id
+		)
+
+}
+
+
+rule simpleconnector2transition {
+	from
+		c : railNet!Connector
+	to
+		t : petriNet!Transition(
+			InArcs <- a1,
+			OutArcs <- a2,
+			id <- c.id
+			),
+		a1 : petriNet!Arc(
+			id <- (c.id + 'a1'),
+			source <- c."from", 
+			target <- t
+			),		
+		a2 : petriNet!Arc(
+			id <- c.id + 'a2',
+			source <- t,
+			target <- c."to"
+			)
+
+}
+
+
+rule simpleUnits2Places {
+	from 
+		u: railNet!Unit(u.isSimpleUnit())
+	to
+		p : petriNet!Place(
+			id <- u.id
+			--InArcs <- u.inConnectors,
+			--OutArcs <- u.outConnectors
+			)
+	
+}
+
+
+rule JointPoints2Elements {
+	from 
+		u: railNet!Unit(u.isComplexUnit())
+	to
+		p1 : petriNet!Place(
+			id <- u.id
+			--InArcs <- u.inConnectors,
+			--OutArcs <- u.outConnectors
+			),
+		p2 : petriNet!Place(
+			id <- u.id + '_semaphore'
+			)
+}
+
+-------------------------------------------------------------------
+
+----------- CALLED RULES -----------------------------------------------
+
+-------------------------------------------------------------------
+
+rule SemaphoreIn(c: petriNet!Transition, p: petriNet!Place) {
+	
+	to
+		a: petriNet!Arc (
+			id <- c.id + '_semaphore',
+			source <- c,
+			target <- p
+			)
+}
+
+rule SemaphoreOut(c: petriNet!Transition, p: petriNet!Place) {
+	
+	to
+		a: petriNet!Arc (
+			id <- c.id + '_semaphore',
+			source <- p,
+			target <- c
+			)
+}
+
+-------------------------------------------------------------------
+
+----------- ENDRULE ----------------------------------------------
+
+-------------------------------------------------------------------
+
+endpoint rule EndRule(){
+	do{
+		for(u in railNet!Unit.allInstances()) {
+			if (u.isComplexUnit()){
+				for(p in petriNet!Place.allInstances()){
+					if (p.id = u.id + '_semaphore'){
+						for(c in u.inConnectors){		
+							for(t in petriNet!Transition.allInstances()){		
+								if(t.id = c.id){
+									thisModule.SemaphoreOut(c, p);
+								 	
+								}
+							}
+						}
+						for(c in u.outConnectors){
+							for(t in petriNet!Transition.allInstances()){		
+								if(t.id = c.id){
+									thisModule.SemaphoreIn(c, p);
+									
+								}
+							}
+						}
+					}
+					
+				}
+			}
+				
+		}
+		for(a in petriNet!Arc.allInstancesFrom('OUT')) {
+			petriNet!PetriNet.allInstancesFrom('OUT').first().objects.add(a);
+		}
+		for(t in petriNet!Transition.allInstancesFrom('OUT')) {
+			petriNet!PetriNet.allInstancesFrom('OUT').first().objects.add(t);
+		}
+		for(p in petriNet!Place.allInstancesFrom('OUT')) {
+			petriNet!PetriNet.allInstancesFrom('OUT').first().objects.add(p);
+		}
+	}
+}
